@@ -1,0 +1,10 @@
+c:\users\sergeychi\documents\visual studio 2012\Projects\Arithmetic_Progressions\Arithmetic_Progressions\bin\Debug\Arithmetic_Progressions.exe.config
+G:\C_Sharp\Arithmetic_Progressions\Arithmetic_Progressions\bin\Debug\Arithmetic_Progressions.exe.config
+G:\C_Sharp\Arithmetic_Progressions\Arithmetic_Progressions\bin\Debug\Arithmetic_Progressions.exe
+G:\C_Sharp\Arithmetic_Progressions\Arithmetic_Progressions\bin\Debug\Arithmetic_Progressions.pdb
+G:\C_Sharp\Arithmetic_Progressions\Arithmetic_Progressions\obj\Debug\Arithmetic_Progressions.csprojResolveAssemblyReference.cache
+G:\C_Sharp\Arithmetic_Progressions\Arithmetic_Progressions\obj\Debug\Arithmetic_Progressions.Progressions.resources
+G:\C_Sharp\Arithmetic_Progressions\Arithmetic_Progressions\obj\Debug\Arithmetic_Progressions.Properties.Resources.resources
+G:\C_Sharp\Arithmetic_Progressions\Arithmetic_Progressions\obj\Debug\Arithmetic_Progressions.csproj.GenerateResource.Cache
+G:\C_Sharp\Arithmetic_Progressions\Arithmetic_Progressions\obj\Debug\Arithmetic_Progressions.exe
+G:\C_Sharp\Arithmetic_Progressions\Arithmetic_Progressions\obj\Debug\Arithmetic_Progressions.pdb
