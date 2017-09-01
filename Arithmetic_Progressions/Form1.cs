@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 using System.Numerics;
 
@@ -18,25 +19,109 @@ namespace Arithmetic_Progressions
             InitializeComponent();
         }
 
+        public int limit;
+        public string Output = "";
+        public string NameOfOperation = "";
+        
 
-              
+
+        private void CRT_and_to_Buff()
+        {
+            richTextBox_Output.Text = "";//очищаем большой текстбокс
+            limit = int.Parse(textBox_Boundary.Text);
+            //тут надо как-то выбрать то, что готово, можно использовать переключатель switch
+            switch (NameOfOperation)
+            {
+                case "Fibonacci":
+                    {
+                        Output = String.Join(" ", Fibonacci(limit));
+                        richTextBox_Output.Text += Output + Environment.NewLine;
+                    }
+                    break;
+                case "Simple":
+                    {
+                        Output = String.Join(" ", SimpleNumbers(limit));
+                        richTextBox_Output.Text += Output + Environment.NewLine;
+                    }
+                    break;
+                case "Lucas":
+                    {
+                        Output = String.Join(" ", Lucas(limit));
+                        richTextBox_Output.Text += Output + Environment.NewLine;
+                    }
+                    break;
+                case "Catalan":
+                    {
+                        Output = String.Join(" ", Catalan(limit));
+                        richTextBox_Output.Text += Output + Environment.NewLine;
+                    }
+                    break;
+                case "Factorials":
+                    {
+                        Output = String.Join(" ", Factorials(limit));
+                        richTextBox_Output.Text += Output + Environment.NewLine;
+                    }
+                    break;
+                case "Squares":
+                    {
+                        Output = String.Join(" ", Squares(limit));
+                        richTextBox_Output.Text += Output + Environment.NewLine;
+                    }
+                    break;
+                case "Central":
+                    {
+                        Output = String.Join(" ", Central(limit));
+                        richTextBox_Output.Text += Output + Environment.NewLine;
+                    }
+                    break;
+
+            }
+        }
+      
         
         private void button_Fibonacci_Click(object sender, EventArgs e)
         {
-            int limit = int.Parse(textBox_Boundary.Text);
-            string Fibonacci_Output = "";
-            //запись в стринговую переменную объединения массива чисел Фибоначчи через разделитель - пробел
-            Fibonacci_Output += String.Join(" ", Fibonacci(limit));
-            richTextBox_Output.Text += Fibonacci_Output + Environment.NewLine;
+            NameOfOperation = "Fibonacci";
+            CRT_and_to_Buff();
         }
-
 
         private void button_Simple_Numbers_Click(object sender, EventArgs e)
         {
-            int limit = int.Parse(textBox_Boundary.Text);
-            string Simple_Output = "";
-            Simple_Output += String.Join(" ", SimpleNumbers(limit));
-            richTextBox_Output.Text += Simple_Output + Environment.NewLine;
+            NameOfOperation = "Simple";
+            CRT_and_to_Buff();
+        }
+
+        private void button_Lucas_Click(object sender, EventArgs e)
+        {
+            //https://oeis.org/A000032
+            NameOfOperation = "Lucas";
+            CRT_and_to_Buff();
+        }
+
+        private void button_Catalan_Click(object sender, EventArgs e)
+        {
+            NameOfOperation = "Catalan";
+            CRT_and_to_Buff();
+        }
+
+        private void button_Factorials_Click(object sender, EventArgs e)
+        {
+            NameOfOperation = "Factorials";
+            CRT_and_to_Buff();
+        }
+
+        private void button_Squares_Click(object sender, EventArgs e)
+        {
+            NameOfOperation = "Squares";
+            CRT_and_to_Buff();
+        }
+
+        private void button_Central_Click(object sender, EventArgs e)
+        {
+            //	Central polygonal numbers (the Lazy Caterer's sequence): n(n+1)/2 + 1; or, maximal number of pieces formed when slicing a pancake with n cuts. 
+            //http://oeis.org/A000124
+            NameOfOperation = "Central";
+            CRT_and_to_Buff();
         }
 
 
@@ -79,7 +164,6 @@ namespace Arithmetic_Progressions
             return Simple;
         }
 
-
       //метод который определяет простое число или нет
         private static bool isSimple(BigInteger N)
         {
@@ -92,17 +176,6 @@ namespace Arithmetic_Progressions
             }
             return true;
         }
-
-
-        private void button_Lucas_Click(object sender, EventArgs e)
-        {
-            //https://oeis.org/A000032
-            int limit = int.Parse(textBox_Boundary.Text);
-            string Lucas_Output = "";
-            Lucas_Output += String.Join(" ", Lucas(limit));
-            richTextBox_Output.Text += Lucas_Output + Environment.NewLine;
-        }
-
 
         //заполнение массива чисел Лукаса
         static BigInteger[] Lucas(int u)
@@ -118,16 +191,6 @@ namespace Arithmetic_Progressions
             return Lucas_number;
         }
 
-
-        private void button_Catalan_Click(object sender, EventArgs e)
-        {
-            int limit = int.Parse(textBox_Boundary.Text);
-            string Catalan_Output = "";
-            Catalan_Output += String.Join(" ", Catalan(limit));
-            richTextBox_Output.Text += Catalan_Output + Environment.NewLine;
-        }
-
-
         //заполнение массива чисел Каталана
         static BigInteger[] Catalan(int p)
         {
@@ -142,7 +205,7 @@ namespace Arithmetic_Progressions
             return Catalan_number;
         }
 
-
+        //факториалы чисел
         static BigInteger[] Factorials(int y)
         {
             BigInteger[] Factorial = new BigInteger[y + 1];
@@ -154,22 +217,7 @@ namespace Arithmetic_Progressions
             return Factorial;
         }
 
-        private void button_Factorials_Click(object sender, EventArgs e)
-        {
-            int limit = int.Parse(textBox_Boundary.Text);
-            string Factorial_Output = "";
-            Factorial_Output += String.Join(" ", Factorials(limit));
-            richTextBox_Output.Text += Factorial_Output + Environment.NewLine;
-        }
-
-        private void button_Squares_Click(object sender, EventArgs e)
-        {
-            int limit = int.Parse(textBox_Boundary.Text);
-            string Squares_Output = "";
-            Squares_Output += String.Join(" ", Squares(limit));
-            richTextBox_Output.Text += Squares_Output + Environment.NewLine;
-        }
-
+        //квадраты чисел
         static BigInteger[] Squares(int y)
         {
             BigInteger[] Square = new BigInteger[y + 1];
@@ -181,15 +229,6 @@ namespace Arithmetic_Progressions
             return Square;
         }
 
-        private void button_Central_Click(object sender, EventArgs e)
-        {
-            //	Central polygonal numbers (the Lazy Caterer's sequence): n(n+1)/2 + 1; or, maximal number of pieces formed when slicing a pancake with n cuts. 
-            //http://oeis.org/A000124
-            int limit = int.Parse(textBox_Boundary.Text);
-            string Central_Output = "";
-            Central_Output += String.Join(" ", Central(limit));
-            richTextBox_Output.Text += Central_Output + Environment.NewLine;
-        }
 
         //без BigInteger на умножение на 70к примерно выдаёт отрицательные значения
         static BigInteger[] Central(int y)
